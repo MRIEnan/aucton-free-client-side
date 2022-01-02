@@ -4,6 +4,7 @@ const BookmakerHome = () => {
     return (
         <Row className='container-fluid'>
             <h1>Book Maker Hoome</h1>
+            <p>From Mainur Rahman</p>
         </Row>
     );
 };
