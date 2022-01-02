@@ -2,6 +2,12 @@ import React from 'react';
 
 import Allauctions from '../AllAuctiondata/Allauctions';
 import AuctioneerNav from './AuctioneerNav';
+import Banner from './Banner/Banner';
+import BidItems from './BidItems/BidItems';
+import Footer from './Footer/Footer';
+import Register from './Register/Register';
+import RunningBids from './RunningBids/RunningBids';
+import UpcomingAuction from './UpcomingAuction/UpcomingAuction';
 
 const AuctioneerHome = () => {
 
@@ -10,6 +16,14 @@ const AuctioneerHome = () => {
             <AuctioneerNav></AuctioneerNav>
             <h1>Online Free Auction Home</h1>
             <Allauctions></Allauctions>
+            <Banner></Banner>
+            <BidItems></BidItems>
+
+            <RunningBids></RunningBids>
+            <UpcomingAuction></UpcomingAuction>
+            <Register></Register>
+            <Footer></Footer>
+
         </div>
     );
 };
