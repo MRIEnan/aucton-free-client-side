@@ -1,12 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import AuctioneerHome from './Pages/Auctioneer/AuctioneerHome/AuctioneerHome';
+import BookMakerDashboard from './Pages/Bookmaker/BookmakerDashBoard/BookMakerDashboard';
+import BookmakerHome from './Pages/Bookmaker/BookmakerHome/BookmakerHome';
+import AddAuction from './Pages/Bookmaker/AddAuction/AddAuction';
+import ManageAuction from './Pages/Bookmaker/ManageAuction/ManageAuction';
+import SeeWhoBid from './Pages/Bookmaker/SeeWhoBid/SeeWhoBid';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Online Free Auction</h1>
+    <div className="container-fluid">
+        <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<AuctioneerHome/>}/>
+
+
+            <Route path="/BookMakerDashboard" element={<BookMakerDashboard/>}>
+                <Route path="/BookMakerDashboard" element={<BookmakerHome/>}/>
+                <Route path="/BookMakerDashboard/AddAuction" element={<AddAuction/>}/>
+                <Route path="/BookMakerDashboard/ManageAuction" element={<ManageAuction/>}/>
+                <Route path="/BookMakerDashboard/SeeWhoBid" element={<SeeWhoBid/>}/>
+            </Route>
+          </Routes>
+        </BrowserRouter>
     </div>
   );
 }
