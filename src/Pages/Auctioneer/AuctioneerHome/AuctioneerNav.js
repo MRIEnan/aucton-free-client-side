@@ -1,27 +1,70 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import {Link} from 'react-router-dom'
+import './Header.css'
+import { Badge, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../Hook/useAuth';
+import logo from '../../../image/Free_Sample_By_Wix.jfif'
 
 const AuctioneerNav = () => {
+    const {allContext}=useAuth()
+    const { user, logout } = allContext;
+    // const { displayName, photoURL, email } = user;
+
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-          <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/BookMakerDashboard">BookMaker DashBoard</Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-        </Container>
-        </Navbar>
+        <div className="sticky-top">
+            <Navbar style={{backgroundColor:'#020c53'}} variant="dark" expand="lg">
+                <Container>
+                <Navbar.Brand className='' as={NavLink} to='/home'>
+                    <img
+                        alt=""
+                        src={logo}
+                        width="150"
+                        height="80"
+                        className="d-inline-block align-top img-fluid"
+                    />{''}
+                </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ms-auto align-items-center">
+                            <Nav.Link as={NavLink} to='/home'>Home</Nav.Link>
+                            <Nav.Link as={NavLink} to='/BookMakerDashboard'>Book Maker DashBoard</Nav.Link>
+                            
+                            {user.displayName ? (
+                                <>
+                                    <NavDropdown
+                                        title={
+                                            <>
+                                                <img
+                                                    style={{ width: "45px", borderRadius: "50%" }}
+                                                    src={user.photoURL}
+                                                    alt="profile"
+                                                />
+                                            </>
+                                        }
+                                    >
+                                        <div className="text-center" style={{backgroundColor:'#020c53'}} >
+                                        <Nav.Link as={NavLink} to='/dashboard'>DashBoard</Nav.Link>
+                                            <div className="text-center">
+                                                <button onClick={logout} className="btn btn-primary">
+                                                    Log Out
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </NavDropdown>
+                                </>
+                            ) : (
+                                <>
+                                    <Nav.Link as={NavLink} to='/login'>LogIn</Nav.Link>
+                                    <Nav.Link as={NavLink} to='/signup'>SignUp</Nav.Link>
+                                </>
+                            )}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </div>
     );
 };
 
