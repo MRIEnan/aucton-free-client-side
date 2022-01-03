@@ -12,14 +12,15 @@ import BookmakerHome from './Pages/Bookmaker/BookmakerHome/BookmakerHome';
 import AddAuction from './Pages/Bookmaker/AddAuction/AddAuction';
 import ManageAuction from './Pages/Bookmaker/ManageAuction/ManageAuction';
 import SeeWhoBid from './Pages/Bookmaker/SeeWhoBid/SeeWhoBid';
+import BidDetails from './Pages/Auctioneer/BidDetails/BidDetails';
 
 function App() {
   return (
     <div className="container-fluid">
         <BrowserRouter>
           <Routes>
-              <Route path="/" element={<AuctioneerHome/>}/>
-
+            <Route path="/" element={<AuctioneerHome/>}/>
+            <Route path="/BidDetails/:id" element={<BidDetails/>}/>
 
             <Route path="/BookMakerDashboard" element={<BookMakerDashboard/>}>
                 <Route path="/BookMakerDashboard" element={<BookmakerHome/>}/>

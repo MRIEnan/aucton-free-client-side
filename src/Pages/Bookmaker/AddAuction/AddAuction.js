@@ -5,11 +5,12 @@ import { AuctionPost } from '../../../features/AuctionSlice/AuctionSlice';
 
 const AddAuction = () => {
     const [auctiondata, setAuctiondata] = useState({});
-    const bidarray = [];
+    const newbidarray = [{email: '', username: '', bidamount: ''}];
     const [img, setImg] = useState('');
     const dispatch = useDispatch();
     const publishdate = new Date()
-
+    const bidarray = JSON.stringify(newbidarray);
+    
     const OnblurHandler = (e) => {
         const auctionname = e.target.name;
         const auctionvalue = e.target.value;

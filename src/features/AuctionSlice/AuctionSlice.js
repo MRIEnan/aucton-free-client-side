@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
+import Swal from 'sweetalert2'
 //BookMaker Posting auction to database
 export const AuctionPost = createAsyncThunk(
   'Auction/auctionPost',
@@ -21,9 +21,34 @@ export const GetAcution = createAsyncThunk(
     return response
   }
 )
+//auctioneer geeting auction data
+export const GetBidDetails = createAsyncThunk(
+  'Auction/getBidDetails',
+  async (id) => {
+
+    const response = await fetch(`http://localhost:5000/GetBidDetails/${id}`).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
+
+//auctioneer posting bid data
+export const PostingBid = createAsyncThunk(
+  'Auction/postingBid',
+   async (data) => {
+     console.log('hitted', data)
+    const response = await fetch('http://localhost:5000/postingBid',{
+      method: 'PUT',
+      body: JSON.stringify(data)
+    }).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
 const initialState = {
   value: 0,
-  auctiondata: []
+  auctiondata: [],
+  auctionproduct: {}
 };
 
 export const AuctionSlice = createSlice({
@@ -44,10 +69,24 @@ export const AuctionSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(AuctionPost.fulfilled, (state, action) => {
-      alert('Auction Added')
+      Swal.fire(
+        'Good job!',
+        'Auction Added SuccessFully',
+        'success'
+      )
     })
     builder.addCase(GetAcution.fulfilled, (state, action) => {
       state.auctiondata = action.payload
+    })
+    builder.addCase(GetBidDetails.fulfilled, (state, action) => {
+      state.auctionproduct = action.payload
+    })
+    builder.addCase(PostingBid.fulfilled, (state, action) => {
+      Swal.fire(
+        'Good job!',
+        'Bid SuccessFully',
+        'success'
+      )
     })
   },
 });
