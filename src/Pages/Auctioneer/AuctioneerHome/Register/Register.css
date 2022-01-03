@@ -1,0 +1,9 @@
+.register-container{
+    padding: 60px;
+    background-image: linear-gradient(rgb(12, 125, 139), rgb(15, 174, 223));
+    border-radius: 20px;
+    margin-top: 40px;
+}
+.btn:hover{
+    background-color: cadetblue;
+}
