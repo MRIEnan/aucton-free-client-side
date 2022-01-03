@@ -1,6 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile} from "firebase/auth";
 import { useEffect, useState } from "react";
-import firebaseInitialization from "../Firebase/firebase.init";
+import firebaseInitialization from "../../../../Firebase/firebase.init";
+
 
 firebaseInitialization();
 const auth = getAuth();

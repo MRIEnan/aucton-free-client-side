@@ -1,11 +1,10 @@
 import React from 'react';
 import './Header.css'
-import { Badge, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+
 import { NavLink } from 'react-router-dom';
-import useAuth from '../../Hook/useAuth';
-import logo from '../../../image/Free_Sample_By_Wix.jfif'
+import logo from '../../Shared/image/Free_Sample_By_Wix.jfif'
+import useAuth from '../../Shared/Authentication/Hook/useAuth';
 
 const AuctioneerNav = () => {
     const {allContext}=useAuth()
