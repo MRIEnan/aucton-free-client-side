@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Button, Col, Container, Form, FormControl, InputGroup, Nav, Row, Spinner } from 'react-bootstrap';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import login from '../image/login.jpg'
@@ -169,7 +169,8 @@ const SignUp = () => {
                                 --------------------------------
 
                             </p>
-                            <Nav.Link className='text-warning' as={NavLink} to='/login'>Don't have an account? please register</Nav.Link>
+                            <Nav.Link className='text-warning' as={Link} to='/login'>Already have an account? please login</Nav.Link>
+                           
                             <p className='brand-title'>SignUp with google</p>
                             <Button className="text-warning" style={{ backgroundColor: '#f1f1f1' }} onClick={() => signInWithGoogle(location, navigate)}>SignUp With</Button>
 

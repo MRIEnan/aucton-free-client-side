@@ -19,15 +19,15 @@ const useFirebase = () => {
 
 
 
-    const registerUser = (email, password, name, location, history) => {
+    const registerUser = (email, password, name, location, navigate) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const destination = location?.state?.from || '/';
-                history.replace(destination);
+                navigate(destination);
                 const newUser = { email, displayName: name }
                 setUser(newUser)
-                // saveUser(email, name, 'POST');
+                saveUser(email, name);
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
@@ -49,12 +49,12 @@ const useFirebase = () => {
 
     }
 
-    const loginUser = (email, password, location, history) => {
+    const loginUser = (email, password, location, navigate) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const destination = location?.state?.from || '/';
-                history.replace(destination);
+                navigate(destination);
                 // Signed in 
                 setError('');
 
@@ -74,7 +74,7 @@ const useFirebase = () => {
     }, [error]);
 
     //google signIn
-    const signInWithGoogle = (location, history) => {
+    const signInWithGoogle = (location, navigate) => {
         setIsLoading(true);
 
 
@@ -82,7 +82,7 @@ const useFirebase = () => {
             .then((result) => {
                 console.log('google sign in is clicked');
                 const destination = location?.state?.from || '/';
-                history.replace(destination);
+                navigate(destination);
                 // const user = result.user;
                 // saveUser(user.email, user.displayName, 'PUT')
                 setError('');
@@ -101,11 +101,6 @@ const useFirebase = () => {
             if (user) {
                 console.log(user);
                 setUser(user)
-                // getIdToken(user)
-                // .then(idToken=>{
-                //     setToken(idToken);
-                //     console.log(idToken);
-                // })
 
             } else {
                 setUser({})
@@ -115,44 +110,32 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [])
 
-
-    // useEffect(() => {
-    //     fetch(`https://boiling-ravine-21246.herokuapp.com/uniqueUser/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => setAdmin(data.admin))
-    // }, [user.email])
-
-
-
-
-
-    const logout = () => {
+    const logout = (navigate) => {
         setIsLoading(true)
         signOut(auth).then(() => {
-            console.log('logout is clicked');
-
+            navigate('/')
         }).catch((error) => {
             setError(error.message)
         })
             .finally(() => setIsLoading(false));
     }
 
-    // const saveUser = (email, displayName, method) => {
+    const saveUser = (email, name) => {
 
-    //     const user = { email, displayName }
+        const user = { email, name }
 
-    //     fetch('https://boiling-ravine-21246.herokuapp.com/uniqueUser', {
-    //         method: method,
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
+        fetch('http://localhost:5000/userPost', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
 
-    //         })
-    // }
+            })
+    }
     return {
         user,
         admin,

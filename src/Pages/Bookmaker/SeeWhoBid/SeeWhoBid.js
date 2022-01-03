@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {useParams} from 'react-router-dom';
-import { GetBidDetails } from '../../../features/AuctionSlice/AuctionSlice';
+import { GetBidDetails, MakingWiner, ManageStatus } from '../../../features/AuctionSlice/AuctionSlice';
 
 const SeeWhoBid = () => {
     const dispatch = useDispatch();
@@ -15,8 +15,12 @@ const SeeWhoBid = () => {
     const product = useSelector((state) => state.auctionstore.auctionproduct);
 
     const bidarrays = product.bidarray && JSON.parse(product?.bidarray);
-
-    console.log(product)
+    
+    const WinerHandler = (email) => {
+        dispatch(ManageStatus(product._id))
+        const newdata = {...product, email}
+        dispatch(MakingWiner(newdata))
+    }
     return (
         <Row className='container-fluid'>
             <h1 className='text-cener fw-bold'>Your Product Biding Situation</h1>
@@ -35,7 +39,7 @@ const SeeWhoBid = () => {
                     <h4>{bid?.username}</h4>
                     <h4> {bid?.bidamount &&  <>$ {bid?.bidamount}</>}</h4>
                     <h4>{bid?.biddate}</h4>
-                    {bid?.username && <button onClick={() => console.log(bid?.email)} className='btn btn-success fw-bold text-light'>MAKE WINNER</button>}
+                    {bid?.username && <button onClick={() => WinerHandler(bid?.email)} className='btn btn-success fw-bold text-light'>MAKE WINNER</button>}
                 </Col>)
                 }
                 

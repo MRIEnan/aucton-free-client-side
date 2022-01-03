@@ -14,15 +14,14 @@ const AuctioneerHome = () => {
     return (
         <div className='container-fluid'>
             <AuctioneerNav></AuctioneerNav>
-            <h1>Online Free Auction Home</h1>
-            <Allauctions></Allauctions>
             <Banner></Banner>
+            <Allauctions></Allauctions>
             <BidItems></BidItems>
 
             <RunningBids></RunningBids>
             <UpcomingAuction></UpcomingAuction>
             <Register></Register>
-            <Footer></Footer>
+            
 
         </div>
     );

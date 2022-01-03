@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import './Login.css'
 import { Alert, Button, Col, Container, Form, FormControl, InputGroup, Nav, Row, Spinner } from 'react-bootstrap';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../image/login.jpg'
 import useAuth from '../Authentication/Hook/useAuth';
 
@@ -12,7 +12,7 @@ const Login = () => {
     const [loginData, setLoginData] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    const { allContext, addToCart, selectedProduct } = useAuth()
+    const { allContext } = useAuth()
     const { user, isLoading, error, loginUser, signInWithGoogle } = allContext;
     console.log(loginData);
     const handleOnBlur = e => {
@@ -145,7 +145,7 @@ const Login = () => {
                             --------------------------------
 
                         </p>
-                        <Nav.Link className='text-warning' as={NavLink} to='/signup'>Already have an account? please login</Nav.Link>
+                        <Nav.Link className='text-warning' as={Link} to='/signup'>Don't have an account? please register</Nav.Link>
                         <p className='brand-title'>SignUp with google</p>
                         <Button className="text-warning" style={{ backgroundColor: '#f1f1f1' }} onClick={() => signInWithGoogle(location, navigate)}>SignUp With </Button>
                         {user?.email && <Alert variant='success' className='w-25 mx-auto ' >

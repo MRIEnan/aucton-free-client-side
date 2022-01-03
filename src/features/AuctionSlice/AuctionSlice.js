@@ -63,6 +63,23 @@ export const ManageStatus = createAsyncThunk(
     return response
   }
 )
+//bookmaker making winner
+export const MakingWiner = createAsyncThunk(
+  'Auction/makingWiner',
+  async (data) => {
+    console.log('hittet',data)
+    const response = await fetch('http://localhost:5000/MakingWiner',{
+      method: 'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
+
 const initialState = {
   value: 0,
   auctiondata: [],
@@ -114,6 +131,13 @@ export const AuctionSlice = createSlice({
       Swal.fire(
         'Good job!',
         'Auction Closed SuccessFully',
+        'success'
+      )
+    })
+    builder.addCase(MakingWiner.fulfilled, (state, action) => {
+      Swal.fire(
+        'Good job!',
+        'Winner Maked SuccessFully',
         'success'
       )
     })

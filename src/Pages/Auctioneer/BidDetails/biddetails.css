@@ -1,0 +1,9 @@
+.bidform{
+    border: #020c53 solid 5px;
+    border-radius: 15px;
+}
+.regularbtn{
+    background-color: #020c53;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+}

@@ -16,14 +16,14 @@ import SeeWhoBid from './Pages/Bookmaker/SeeWhoBid/SeeWhoBid';
 import Login from './Pages/Shared/Login/Login';
 import SignUp from './Pages/Shared/SignUp/SignUp';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
-import AuctioneerNav from './Pages/Auctioneer/AuctioneerHome/AuctioneerNav';
 import BidDetails from './Pages/Auctioneer/BidDetails/BidDetails';
+import Footer from './Pages/Auctioneer/AuctioneerHome/Footer/Footer'
 function App() {
   return (
     <div className="container-fluid">
        <AuthProvider>
        <BrowserRouter>
-  <AuctioneerNav></AuctioneerNav>
+
   <Routes>
     <Route path="/" element={<AuctioneerHome />} />
     <Route path="/BidDetails/:id" element={<BidDetails />} />
@@ -37,6 +37,7 @@ function App() {
       <Route path="/BookMakerDashboard/SeeWhoBid/:id" element={<SeeWhoBid />} />
     </Route>
   </Routes>
+  <Footer></Footer>
 </BrowserRouter>
       </AuthProvider>
     </div>

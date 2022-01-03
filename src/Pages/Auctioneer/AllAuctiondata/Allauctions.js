@@ -11,7 +11,7 @@ const Allauctions = () => {
     },[dispatch])
 
     const auctiondata = useSelector((state) => state.auctionstore.auctiondata)
-console.log('done', auctiondata)
+
     return (
         <Row className="justify-content-center">
             {
