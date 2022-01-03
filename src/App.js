@@ -21,8 +21,7 @@ function App() {
   return (
     <div className="container-fluid">
        <AuthProvider>
-
-<BrowserRouter>
+       <BrowserRouter>
   <AuctioneerNav></AuctioneerNav>
   <Routes>
     <Route path="/" element={<AuctioneerHome />} />
@@ -38,7 +37,7 @@ function App() {
     </Route>
   </Routes>
 </BrowserRouter>
-</AuthProvider>
+      </AuthProvider>
     </div>
   );
 }
