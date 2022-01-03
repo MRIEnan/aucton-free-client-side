@@ -16,27 +16,27 @@ import Login from './Pages/Shared/Login/Login';
 import SignUp from './Pages/Shared/SignUp/SignUp';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 import AuctioneerNav from './Pages/Auctioneer/AuctioneerHome/AuctioneerNav';
-
+import BidDetails from './Pages/Auctioneer/BidDetails/BidDetails';
 function App() {
   return (
     <div className="container-fluid">
-      <AuthProvider>
+       <AuthProvider>
+       <BrowserRouter>
+  <AuctioneerNav></AuctioneerNav>
+  <Routes>
+    <Route path="/" element={<AuctioneerHome />} />
+    <Route path="/BidDetails/:id" element={<BidDetails />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/signup" element={<SignUp />} />
 
-        <BrowserRouter>
-          <AuctioneerNav></AuctioneerNav>
-          <Routes>
-            <Route path="/" element={<AuctioneerHome />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-
-            <Route path="/BookMakerDashboard" element={<BookMakerDashboard />}>
-              <Route path="/BookMakerDashboard" element={<BookmakerHome />} />
-              <Route path="/BookMakerDashboard/AddAuction" element={<AddAuction />} />
-              <Route path="/BookMakerDashboard/ManageAuction" element={<ManageAuction />} />
-              <Route path="/BookMakerDashboard/SeeWhoBid" element={<SeeWhoBid />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+    <Route path="/BookMakerDashboard" element={<BookMakerDashboard />}>
+      <Route path="/BookMakerDashboard" element={<BookmakerHome />} />
+      <Route path="/BookMakerDashboard/AddAuction" element={<AddAuction />} />
+      <Route path="/BookMakerDashboard/ManageAuction" element={<ManageAuction />} />
+      <Route path="/BookMakerDashboard/SeeWhoBid/:id" element={<SeeWhoBid />} />
+    </Route>
+  </Routes>
+      </BrowserRouter>
       </AuthProvider>
     </div>
   );
