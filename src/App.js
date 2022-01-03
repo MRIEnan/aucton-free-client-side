@@ -20,13 +20,13 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<AuctioneerHome/>}/>
-            <Route path="/BidDetails/:id" element={<BidDetails/>}/>
+         
 
             <Route path="/BookMakerDashboard" element={<BookMakerDashboard/>}>
                 <Route path="/BookMakerDashboard" element={<BookmakerHome/>}/>
                 <Route path="/BookMakerDashboard/AddAuction" element={<AddAuction/>}/>
                 <Route path="/BookMakerDashboard/ManageAuction" element={<ManageAuction/>}/>
-                <Route path="/BookMakerDashboard/SeeWhoBid/:id" element={<SeeWhoBid/>}/>
+                <Route path="/BookMakerDashboard/SeeWhoBid" element={<SeeWhoBid/>}/>
             </Route>
           </Routes>
         </BrowserRouter>
