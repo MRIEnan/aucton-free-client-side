@@ -15,6 +15,9 @@ const BookMakerDashboardSidebar = () => {
             <ListGroup.Item as={Link} to="/BookMakerDashboard/ManageAuction" action variant="success">
                 Manage Auction
             </ListGroup.Item>
+            <ListGroup.Item as={Link} to="/BookMakerDashboard/MakeAnBookMaker" action variant="success">
+                Make An Book Maker
+            </ListGroup.Item>
       </ListGroup>
     );
 };

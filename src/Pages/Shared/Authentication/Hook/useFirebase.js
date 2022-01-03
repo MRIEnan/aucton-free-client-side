@@ -51,33 +51,48 @@ const useFirebase = () => {
 
     const loginUser = (email, password, location, navigate) => {
         setIsLoading(true);
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const destination = location?.state?.from || '/';
-                navigate(destination);
-                // Signed in 
-                setError('');
-
-            })
-            .catch((error) => {
-
-                const errorMessage = error.message;
-                setError(errorMessage);
-            })
-            .finally(() => setIsLoading(false));
+        fetch(`http://localhost:5000/userCheck?email=${email}`)
+        .then(res => res.json())
+        .then(data => {
+            if(data.role === 'bookmaker')
+            {
+                signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    navigate('/BookMakerDashboard');
+                    // Signed in 
+                    setError('');
+        
+                })
+                .catch((error) => {
+        
+                    const errorMessage = error.message;
+                    setError(errorMessage);
+                })
+                .finally(() => setIsLoading(false));
+            }
+            else{
+                signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const destination = location?.state?.from || '/';
+                    navigate(destination);
+                    // Signed in 
+                    setError('');
+        
+                })
+                .catch((error) => {
+        
+                    const errorMessage = error.message;
+                    setError(errorMessage);
+                })
+                .finally(() => setIsLoading(false));
+            }
+        })
+    
     }
-
-    useEffect(() => {
-        setTimeout(() => {
-            setError("");
-        }, 5000);
-    }, [error]);
 
     //google signIn
     const signInWithGoogle = (location, navigate) => {
         setIsLoading(true);
-
-
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 console.log('google sign in is clicked');
@@ -93,7 +108,6 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
-
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {

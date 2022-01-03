@@ -9,7 +9,7 @@ const BookmakerNav = () => {
   const { user, logout } = allContext;
   const navigate = useNavigate();
      
-  const LogOutHandler = (navigate) => {
+  const LogOutHandler = () => {
       logout(navigate)
   }
     return (

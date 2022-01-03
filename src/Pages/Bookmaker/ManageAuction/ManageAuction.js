@@ -10,7 +10,7 @@ const ManageAuction = () => {
     const dispatch = useDispatch();
     const [demo, setDemo] = useState([])
     useEffect(() => {
-        dispatch(GetBookmakerAcution('ahan@gmail.com'))
+        dispatch(GetBookmakerAcution())
     },[dispatch, demo ]);
 
     const managedata = useSelector((state) => state.auctionstore.bookmakerauction)

@@ -16,14 +16,14 @@ const SeeWhoBid = () => {
 
     const bidarrays = product.bidarray && JSON.parse(product?.bidarray);
     
-    const WinerHandler = (email) => {
+    const WinerHandler = (email,bidamount) => {
         dispatch(ManageStatus(product._id))
-        const newdata = {...product, email}
+        const newdata = {...product, email, bidamount}
         dispatch(MakingWiner(newdata))
     }
     return (
         <Row className='container-fluid'>
-            <h1 className='text-cener fw-bold'>Your Product Biding Situation</h1>
+            <h1 className='text-center fw-bold'>Your Product Biding Situation</h1>
             <Row className='justify-content-center'>
             <Col lg={6} md={6} sm={12}>
             <img className='auctionimg' src={`data:image/jpeg;base64,${product.img}`} alt="" />
@@ -39,7 +39,7 @@ const SeeWhoBid = () => {
                     <h4>{bid?.username}</h4>
                     <h4> {bid?.bidamount &&  <>$ {bid?.bidamount}</>}</h4>
                     <h4>{bid?.biddate}</h4>
-                    {bid?.username && <button onClick={() => WinerHandler(bid?.email)} className='btn btn-success fw-bold text-light'>MAKE WINNER</button>}
+                    {bid?.username && <button onClick={() => WinerHandler(bid?.email, bid?.bidamount)} className='btn btn-success fw-bold text-light'>MAKE WINNER</button>}
                 </Col>)
                 }
                 

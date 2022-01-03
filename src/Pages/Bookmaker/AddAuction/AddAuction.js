@@ -13,9 +13,6 @@ const AddAuction = () => {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
     const publishdate = d.toLocaleString('en-US', { timeZone: `${timezone}` });
     const bidarray = JSON.stringify(newbidarray);
-    const { allContext } = useAuth()
-    const { user} = allContext;
-    const email = "ahan@gmail.com"
     const status = 'open';
     const winnerstatus = 'pending';
 
@@ -45,7 +42,6 @@ const AddAuction = () => {
         fd.append('description', auctiondata.description)
         fd.append('bidarray', bidarray)
         fd.append('pulishdate', publishdate)
-        fd.append('email', email)
         fd.append('status', status)
         fd.append('winnerstatus', winnerstatus)
         fd.append('img', img)
@@ -106,7 +102,7 @@ const AddAuction = () => {
                     <Form.Control as="textarea" name='description' onBlur={OnblurHandler}  type="text" placeholder="Description" />
                     </FloatingLabel>
                 </Row>
-            <button type='submit' className='btn btn-dark text-warning'>ADD AUCTION</button>
+            <button type='submit' className='btn regularbtn fw-bold text-warning'>ADD AUCTION</button>
             </Form>
         </Row>
     );

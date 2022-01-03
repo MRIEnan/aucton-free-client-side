@@ -18,6 +18,8 @@ import SignUp from './Pages/Shared/SignUp/SignUp';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 import BidDetails from './Pages/Auctioneer/BidDetails/BidDetails';
 import Footer from './Pages/Auctioneer/AuctioneerHome/Footer/Footer'
+import YourWinnigAuction from './Pages/Auctioneer/YourWinnigAuction/YourWinnigAuction';
+import MakeAnBookMaker from './Pages/Bookmaker/MakeAnBookMaker/MakeAnBookMaker';
 function App() {
   return (
     <div className="container-fluid">
@@ -35,7 +37,9 @@ function App() {
       <Route path="/BookMakerDashboard/AddAuction" element={<AddAuction />} />
       <Route path="/BookMakerDashboard/ManageAuction" element={<ManageAuction />} />
       <Route path="/BookMakerDashboard/SeeWhoBid/:id" element={<SeeWhoBid />} />
+      <Route path="/BookMakerDashboard/MakeAnBookMaker" element={<MakeAnBookMaker />} />
     </Route>
+    <Route path="/YourWinnigAuction" element={<YourWinnigAuction/>}/>
   </Routes>
   <Footer></Footer>
 </BrowserRouter>

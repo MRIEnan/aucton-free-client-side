@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../Shared/image/Free_Sample_By_Wix.jfif'
 import useAuth from '../../Shared/Authentication/Hook/useAuth';
 
@@ -19,7 +19,7 @@ const AuctioneerNav = () => {
         <div className="sticky-top">
             <Navbar style={{backgroundColor:'#020c53'}} variant="dark" expand="lg">
                 <Container>
-                <Navbar.Brand className='' as={NavLink} to='/'>
+                <Navbar.Brand className='' as={Link} to='/'>
                     <img
                         alt=""
                         src={logo}
@@ -30,9 +30,13 @@ const AuctioneerNav = () => {
                 </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto align-items-center">
+                            <Nav.Link as={Link} to='/YourWinnigAuction'>YourWinnigAuction</Nav.Link>
+                           
+                        </Nav>
                         <Nav className="ms-auto align-items-center">
-                            <Nav.Link as={NavLink} to='/'>Home</Nav.Link>
-                            <Nav.Link as={NavLink} to='/BookMakerDashboard'>Book Maker DashBoard</Nav.Link>
+                            <Nav.Link as={Link} to='/'>Home</Nav.Link>
+                            <Nav.Link as={Link} to='/BookMakerDashboard'>Book Maker DashBoard</Nav.Link>
                             
                             {user.email ? (
                                 <>
@@ -42,8 +46,8 @@ const AuctioneerNav = () => {
                                 </>
                             ) : (
                                 <>
-                                    <Nav.Link as={NavLink} to='/login'>LogIn</Nav.Link>
-                                    <Nav.Link as={NavLink} to='/signup'>SignUp</Nav.Link>
+                                    <Nav.Link as={Link} to='/login'>LogIn</Nav.Link>
+                                    <Nav.Link as={Link} to='/signup'>SignUp</Nav.Link>
                                 </>
                             )}
                         </Nav>

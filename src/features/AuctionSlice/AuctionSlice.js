@@ -32,11 +32,11 @@ export const GetBidDetails = createAsyncThunk(
     return response
   }
 )
-//bookmaker geeting individual auction data by their email
+//bookmaker geeting  auction data 
 export const GetBookmakerAcution = createAsyncThunk(
   'Auction/getBookmakerAcution',
-  async (email) => {
-    const response = await fetch(`http://localhost:5000/GetBookmakerAcution?email=${email}`).then(res=> res.json()).catch(error => {
+  async () => {
+    const response = await fetch('http://localhost:5000/GetBookmakerAcution').then(res=> res.json()).catch(error => {
   });
     return response
   }
@@ -79,12 +79,21 @@ export const MakingWiner = createAsyncThunk(
     return response
   }
 )
-
+//bookmaker making winner
+export const GetWinnerData = createAsyncThunk(
+  'Auction/getWinnerData',
+  async (email) => {
+    const response = await fetch(`http://localhost:5000/getWinnerData?email=${email}`).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
 const initialState = {
   value: 0,
   auctiondata: [],
   auctionproduct: {},
   bookmakerauction: [],
+  winnerdata: []
 };
 
 export const AuctionSlice = createSlice({
@@ -140,6 +149,9 @@ export const AuctionSlice = createSlice({
         'Winner Maked SuccessFully',
         'success'
       )
+    })
+    builder.addCase(GetWinnerData.fulfilled, (state, action) => {
+      state.winnerdata = action.payload
     })
   },
 });
