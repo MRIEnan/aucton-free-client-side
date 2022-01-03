@@ -26,7 +26,7 @@ function App() {
                 <Route path="/BookMakerDashboard" element={<BookmakerHome/>}/>
                 <Route path="/BookMakerDashboard/AddAuction" element={<AddAuction/>}/>
                 <Route path="/BookMakerDashboard/ManageAuction" element={<ManageAuction/>}/>
-                <Route path="/BookMakerDashboard/SeeWhoBid" element={<SeeWhoBid/>}/>
+                <Route path="/BookMakerDashboard/SeeWhoBid/:id" element={<SeeWhoBid/>}/>
             </Route>
           </Routes>
         </BrowserRouter>

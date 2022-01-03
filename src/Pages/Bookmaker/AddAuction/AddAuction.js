@@ -10,7 +10,8 @@ const AddAuction = () => {
     const dispatch = useDispatch();
     const publishdate = new Date()
     const bidarray = JSON.stringify(newbidarray);
-    
+    const email = 'ahan@gmail.com';
+    const status = 'open'
     const OnblurHandler = (e) => {
         const auctionname = e.target.name;
         const auctionvalue = e.target.value;
@@ -37,6 +38,8 @@ const AddAuction = () => {
         fd.append('description', auctiondata.description)
         fd.append('bidarray', bidarray)
         fd.append('pulishdate', publishdate)
+        fd.append('email', email)
+        fd.append('status', status)
         fd.append('img', img)
         dispatch(AuctionPost(fd))
         e.target.reset()
