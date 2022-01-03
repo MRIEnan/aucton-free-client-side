@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Alert, Button, Col, Container, Form, FormControl, InputGroup, Nav, Row, Spinner } from 'react-bootstrap';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
-import useAuth from '../../Hook/useAuth';
-import login from '../../../image/login.jpg'
+import login from '../image/login.jpg'
+import useAuth from '../Authentication/Hook/useAuth';
 
 
 const SignUp = () => {
     const { allContext, addToCart, selectedProduct } = useAuth()
     const { user, registerUser, isLoading, error, signInWithGoogle } = allContext;
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const location = useLocation();
     console.log(user);
     const [loginData, setLoginData] = useState('');
@@ -31,7 +31,7 @@ const SignUp = () => {
         if (loginData.password !== loginData.password2) {
             alert('password dis not match')
         }
-        registerUser(loginData.email, loginData.password, loginData.name, location, history)
+        registerUser(loginData.email, loginData.password, loginData.name, location, navigate)
         e.preventDefault();
     }
 
@@ -171,7 +171,7 @@ const SignUp = () => {
                             </p>
                             <Nav.Link className='text-warning' as={NavLink} to='/login'>Don't have an account? please register</Nav.Link>
                             <p className='brand-title'>SignUp with google</p>
-                            <Button className="text-warning" style={{ backgroundColor: '#f1f1f1' }} onClick={() => signInWithGoogle(location, history)}>SignUp With</Button>
+                            <Button className="text-warning" style={{ backgroundColor: '#f1f1f1' }} onClick={() => signInWithGoogle(location, navigate)}>SignUp With</Button>
 
 
                             {user?.email && <Alert variant='success' className='w-25 mx-auto ' >
