@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import Swal from 'sweetalert2';
 
 //BookMaker Posting auction to database
 export const AuctionPost = createAsyncThunk(
@@ -21,9 +22,52 @@ export const GetAcution = createAsyncThunk(
     return response
   }
 )
+//auctioneer and bookmaker geeting auction data
+export const GetBidDetails = createAsyncThunk(
+  'Auction/getBidDetails',
+  async (id) => {
+    console.log('hitted',id)
+    const response = await fetch(`http://localhost:5000/GetBidDetails/${id}`).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
+//bookmaker geeting individual auction data by their email
+export const GetBookmakerAcution = createAsyncThunk(
+  'Auction/getBookmakerAcution',
+  async (email) => {
+    const response = await fetch(`http://localhost:5000/GetBookmakerAcution?email=${email}`).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
+//bookmaker deleting individual auction data 
+export const BookMakerDeleteAuction = createAsyncThunk(
+  'Auction/bookMakerDeleteAuction',
+  async (id) => {
+    const response = await fetch(`http://localhost:5000/BookMakerDeleteAuction/${id}`,{
+      method: 'DELETE'
+    }).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
+//bookmaker managing status individual auction data 
+export const ManageStatus = createAsyncThunk(
+  'Auction/manageStatus',
+  async (id) => {
+    const response = await fetch(`http://localhost:5000/ManageStatus/${id}`,{
+      method: 'PUT'
+    }).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
 const initialState = {
   value: 0,
-  auctiondata: []
+  auctiondata: [],
+  auctionproduct: {},
+  bookmakerauction: [],
 };
 
 export const AuctionSlice = createSlice({
@@ -44,10 +88,34 @@ export const AuctionSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(AuctionPost.fulfilled, (state, action) => {
-      alert('Auction Added')
+      Swal.fire(
+        'Good job!',
+        'Auction Added SuccessFully',
+        'success'
+      )
     })
     builder.addCase(GetAcution.fulfilled, (state, action) => {
       state.auctiondata = action.payload
+    })
+    builder.addCase(GetBidDetails.fulfilled, (state, action) => {
+      state.auctionproduct = {...action.payload}
+    })
+    builder.addCase(GetBookmakerAcution.fulfilled, (state, action) => {
+      state.bookmakerauction = action.payload
+    })
+    builder.addCase(BookMakerDeleteAuction.fulfilled, (state, action) => {
+      Swal.fire(
+        'Good job!',
+        'Auction Deleted SuccessFully',
+        'success'
+      )
+    })
+    builder.addCase(ManageStatus.fulfilled, (state, action) => {
+      Swal.fire(
+        'Good job!',
+        'Auction Closed SuccessFully',
+        'success'
+      )
     })
   },
 });
