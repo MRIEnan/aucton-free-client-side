@@ -63,6 +63,14 @@ export const ManageStatus = createAsyncThunk(
     return response
   }
 )
+
+//Auctioneer geting data by category
+export const GetCategoryData = createAsyncThunk(
+  'Auction/getCategoryData',
+  async (category) => {
+    console.log('hitted',category)
+    const response = await fetch(`http://localhost:5000/GetCategoryData?category=${category}`).then(res=> res.json()).catch(error => {
+=======
 //bookmaker making winner
 export const MakingWiner = createAsyncThunk(
   'Auction/makingWiner',
@@ -84,6 +92,7 @@ export const GetWinnerData = createAsyncThunk(
   'Auction/getWinnerData',
   async (email) => {
     const response = await fetch(`http://localhost:5000/getWinnerData?email=${email}`).then(res=> res.json()).catch(error => {
+
   });
     return response
   }
@@ -93,7 +102,11 @@ const initialState = {
   auctiondata: [],
   auctionproduct: {},
   bookmakerauction: [],
+
+  categorydata: []
+
   winnerdata: []
+
 };
 
 export const AuctionSlice = createSlice({
@@ -143,6 +156,10 @@ export const AuctionSlice = createSlice({
         'success'
       )
     })
+
+    builder.addCase(GetCategoryData.fulfilled, (state, action) => {
+      state.categorydata = action.payload
+
     builder.addCase(MakingWiner.fulfilled, (state, action) => {
       Swal.fire(
         'Good job!',
@@ -152,6 +169,7 @@ export const AuctionSlice = createSlice({
     })
     builder.addCase(GetWinnerData.fulfilled, (state, action) => {
       state.winnerdata = action.payload
+
     })
   },
 });

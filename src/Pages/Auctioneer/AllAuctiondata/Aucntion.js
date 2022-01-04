@@ -19,7 +19,7 @@ const Aucntion = ({auction}) => {
           </Card.Footer>
           <Link to={`/BidDetails/${_id}`}><button className='btn regularbtn fw-bold text-warning'>Bid Now</button></Link>
         </Card.Body>
-      </Card>
+          </Card>
         </Col>
     );
 };
