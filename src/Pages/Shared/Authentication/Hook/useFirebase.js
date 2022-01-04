@@ -13,11 +13,6 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true)
-    const [admin, setAdmin] = useState(false);
-
-    console.log(admin);
-
-
 
     const registerUser = (email, password, name, location, navigate) => {
         setIsLoading(true);
@@ -110,8 +105,8 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
+        setIsLoading(true)
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-
             if (user) {
                 console.log(user);
                 setUser(user)
@@ -152,14 +147,12 @@ const useFirebase = () => {
     }
     return {
         user,
-        admin,
         registerUser,
         loginUser,
         signInWithGoogle,
         error,
         logout,
         isLoading,
-
     };
 
 };

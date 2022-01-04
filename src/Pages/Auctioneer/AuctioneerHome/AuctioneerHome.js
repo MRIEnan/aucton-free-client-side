@@ -15,14 +15,10 @@ const AuctioneerHome = () => {
         <div className='container-fluid'>
             <AuctioneerNav></AuctioneerNav>
             <Banner></Banner>
-            <Allauctions></Allauctions>
             <BidItems></BidItems>
-
             <RunningBids></RunningBids>
             <UpcomingAuction></UpcomingAuction>
             <Register></Register>
-            
-
         </div>
     );
 };

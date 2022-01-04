@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import login from '../image/login.jpg'
 import useAuth from '../Authentication/Hook/useAuth';
+import AuctioneerNav from '../../Auctioneer/AuctioneerHome/AuctioneerNav';
 
 
 const SignUp = () => {
@@ -37,7 +38,8 @@ const SignUp = () => {
 
 
     return (
-        <div className='mb-5'>
+        <div className='mb-5 container-fluid'>
+            <AuctioneerNav></AuctioneerNav>
             <Container>
                 {isLoading ? <>
                     <Button variant="primary" disabled>
@@ -183,8 +185,6 @@ const SignUp = () => {
                     </Row>
                 }
             </Container>
-
-
         </div>
     );
 };

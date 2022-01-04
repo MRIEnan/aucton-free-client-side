@@ -6,7 +6,7 @@ import { Alert, Button, Col, Container, Form, FormControl, InputGroup, Nav, Row,
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../image/login.jpg'
 import useAuth from '../Authentication/Hook/useAuth';
-
+import AuctioneerNav from '../../Auctioneer/AuctioneerHome/AuctioneerNav';
 const Login = () => {
 
     const [loginData, setLoginData] = useState('');
@@ -32,8 +32,8 @@ const Login = () => {
     }
 
     return (
-        <div>
-
+        <div className="container-fluid">
+            <AuctioneerNav></AuctioneerNav>
             <Container>
 
                 {isLoading ? <>

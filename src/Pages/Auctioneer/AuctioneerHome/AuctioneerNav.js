@@ -12,7 +12,7 @@ const AuctioneerNav = () => {
     // const { displayName, photoURL, email } = user;
     const navigate = useNavigate();
      
-    const LogOutHandler = (navigate) => {
+    const LogOutHandler = () => {
         logout(navigate)
     }
     return (
@@ -30,9 +30,10 @@ const AuctioneerNav = () => {
                 </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto align-items-center">
-                            <Nav.Link as={Link} to='/YourWinnigAuction'>YourWinnigAuction</Nav.Link>
-                           
+                         <Nav className="me-auto align-items-center">
+                           {
+                               user.email &&  <Nav.Link as={Link} to='/YourWinnigAuction'>YourWinnigAuction</Nav.Link>
+                           }
                         </Nav>
                         <Nav className="ms-auto align-items-center">
                             <Nav.Link as={Link} to='/'>Home</Nav.Link>

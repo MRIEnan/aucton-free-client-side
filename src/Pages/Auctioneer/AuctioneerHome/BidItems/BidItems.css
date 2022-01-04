@@ -1,7 +1,13 @@
 .container{
     margin-top: 40px;
 }
+.card{
+    transition: 1s ease-in-out;
+}
 .card:hover{
     background-color: rgb(130, 151, 238);
     margin: 15px;
+}
+.categorycolam{
+    cursor: pointer;
 }

@@ -68,9 +68,12 @@ export const ManageStatus = createAsyncThunk(
 export const GetCategoryData = createAsyncThunk(
   'Auction/getCategoryData',
   async (category) => {
-    console.log('hitted',category)
     const response = await fetch(`http://localhost:5000/GetCategoryData?category=${category}`).then(res=> res.json()).catch(error => {
-=======
+  });
+    return response
+  }
+)
+
 //bookmaker making winner
 export const MakingWiner = createAsyncThunk(
   'Auction/makingWiner',
@@ -102,9 +105,7 @@ const initialState = {
   auctiondata: [],
   auctionproduct: {},
   bookmakerauction: [],
-
-  categorydata: []
-
+  categorydata: [],
   winnerdata: []
 
 };
@@ -159,7 +160,7 @@ export const AuctionSlice = createSlice({
 
     builder.addCase(GetCategoryData.fulfilled, (state, action) => {
       state.categorydata = action.payload
-
+    });
     builder.addCase(MakingWiner.fulfilled, (state, action) => {
       Swal.fire(
         'Good job!',
@@ -171,8 +172,9 @@ export const AuctionSlice = createSlice({
       state.winnerdata = action.payload
 
     })
-  },
+  }
 });
+
 
 export const { increment, decrement, incrementByAmount } = AuctionSlice.actions;
 
