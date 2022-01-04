@@ -1,27 +1,28 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import './Contact.css'
-
+import AuctioneerNav from '../../AuctioneerHome/AuctioneerNav';
 
 const Contact = () => {
     return (
-        <div id="contact" className="contact-container">
-            <h2 className="title mb-5 ">Contact Us</h2>
-            <div >
+        <div id="contact" className="contact-container container-fluid">
+             <AuctioneerNav></AuctioneerNav>
+            <h2 className="title mb-5 my-4 text-center fw-bold">Contact Us</h2>
+            <div className='container-fluid'>
                 <Container>
 
                     <Row>
-                        <Col sm className="col">
+                        <Col sm className="column">
                             <h3>E-mail here</h3>
                             <p> team100@gmail.com</p>
                             <p>onlineauctionk@gmail.com</p>
                         </Col>
-                        <Col sm className="col">
+                        <Col sm className="column">
                             <h3>Location here</h3>
                             <p> 5th Ave Premium Area,Dhaka, BD</p>
                             <p>Mirpur,Dhaka</p>
                         </Col>
-                        <Col sm className="col">
+                        <Col sm className="column">
                             <h3>Call here</h3>
                             <p>+88012345635</p>
                             <p>+88987456546</p>

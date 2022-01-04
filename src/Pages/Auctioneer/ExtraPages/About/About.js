@@ -4,13 +4,14 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 // import team from '../../../images/About/team.png';
 import { BsArrowReturnRight } from 'react-icons/bs';
 import './About.css'
-
+import TeamMamber from '../TeamMamber/TeamMamber';
+import AuctioneerNav from '../../AuctioneerHome/AuctioneerNav';
 const About = () => {
     return (
-        <div id="about" className="about-title-container">
+        <div id="about" className="about-title-container container-fluid">
+            <AuctioneerNav></AuctioneerNav>
             <h1 style={{ color: 'rgb(7, 92, 78)', marginTop: '40px' }}>About Us_</h1>
-            <div className="about-container mx-auto mt-3">
-                
+            <Row className="about-container mx-auto mt-3">
                 <Container>
                     <Row>
 
@@ -53,7 +54,8 @@ const About = () => {
                     </Row>
 
                 </Container>
-            </div>
+            </Row >
+            <TeamMamber></TeamMamber>
         </div>
     );
 };

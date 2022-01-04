@@ -24,6 +24,9 @@ import Vehicles from './Pages/Auctioneer/CategorySearch/vehicle/Vehicles';
 import Watch from './Pages/Auctioneer/CategorySearch/Watch/Watch';
 import Footer from './Pages/Auctioneer/AuctioneerHome/Footer/Footer';
 import PrivateRoute from './Pages/Shared/PrivateRoute/PrivateRoute';
+import About from './Pages/Auctioneer/ExtraPages/About/About'
+import Contact from './Pages/Auctioneer/ExtraPages/Contact/Contact'
+import Author from './Pages/Auctioneer/ExtraPages/Author/Author';
 function App() {
   return (
     <div className="container-fluid">
@@ -47,6 +50,9 @@ function App() {
             <Route path="/Jewelry" element={<Jewelry/>}/>
             <Route path="/Vehicles" element={<Vehicles/>}/>
             <Route path="/Watch" element={<Watch/>}/>
+          <Route path="/About" element={<About/>}/>
+            <Route path="/Contact" element={<Contact/>}/>
+            <Route path="/Author" element={<Author/>}/>
           </Routes>
           <Footer></Footer>
           </BrowserRouter>

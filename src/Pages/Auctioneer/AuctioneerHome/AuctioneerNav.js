@@ -30,6 +30,20 @@ const AuctioneerNav = () => {
                 </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
+                <Nav.Link className="fw-bold" as={Link} to='/About'>About</Nav.Link>
+                <Nav.Link className="fw-bold" as={Link} to='/Contact'>Contact</Nav.Link>
+                <Nav.Link className="fw-bold" as={Link} to='/Author'>Author</Nav.Link>
+        <NavDropdown className="fw-bold text-warning" title="Choose Category" id="basic-nav-dropdown">
+          <NavDropdown.Item as={Link} to='/Electronics'>Electronics</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to='/Jewelry'>Jewelry</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to='/Watch'>Watch</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to='/Vehicles'>Vehicles</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to='/Furniture'>Furniture</NavDropdown.Item>
+        </NavDropdown>
                          <Nav className="me-auto align-items-center">
                            {
                                user.email &&  <Nav.Link as={Link} to='/YourWinnigAuction'>YourWinnigAuction</Nav.Link>

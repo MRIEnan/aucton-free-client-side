@@ -4,7 +4,7 @@ import './Author.css'
 
 const Author = () => {
     return (
-        <div className='intro-div'>
+        <div className='intro-div container-fluid'>
             <div className='start-div'>
                 <h1 className='py-3 fw-bold'>Authors</h1>
                 <Container>
