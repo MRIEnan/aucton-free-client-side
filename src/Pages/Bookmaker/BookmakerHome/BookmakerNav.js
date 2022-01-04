@@ -1,27 +1,43 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
- 
+import {Link, useNavigate} from 'react-router-dom';
+import useAuth from '../../Shared/Authentication/Hook/useAuth';
+import logo from '../../Shared/image/Free_Sample_By_Wix.jfif';
+
 const BookmakerNav = () => {
+  const {allContext}=useAuth()
+  const { user, logout } = allContext;
+  const navigate = useNavigate();
+     
+  const LogOutHandler = () => {
+      logout(navigate)
+  }
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-        <Navbar.Brand href="#home">Book Maker</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">User Home</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-        </Container>
-        </Navbar>
+      <div className="sticky-top">
+      <Navbar style={{backgroundColor:'#020c53'}} variant="dark" expand="lg">
+          <Container>
+          <Navbar.Brand className='fw-bold'>BookMaker DashBoard</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="ms-auto align-items-center">
+                      <Nav.Link as={Link} to='/'>Home</Nav.Link>
+                      {user.email ? (
+                          <>
+                          <button style={{backgroundColor:'#020c53'}} onClick={LogOutHandler} className="text-center btn btn-primary">
+                              Log Out
+                          </button>
+                          </>
+                      ) : (
+                          <>
+                              <Nav.Link as={Link} to='/login'>LogIn</Nav.Link>
+                              <Nav.Link as={Link} to='/signup'>SignUp</Nav.Link>
+                          </>
+                      )}
+                  </Nav>
+              </Navbar.Collapse>
+          </Container>
+      </Navbar>
+  </div>
     );
 };
 

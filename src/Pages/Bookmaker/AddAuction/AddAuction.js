@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 import { Form, Row ,Col, FloatingLabel} from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { AuctionPost } from '../../../features/AuctionSlice/AuctionSlice';
+import useAuth from '../../Shared/Authentication/Hook/useAuth';
 
 const AddAuction = () => {
     const [auctiondata, setAuctiondata] = useState({});
     const newbidarray = [{email: '', username: '', bidamount: ''}];
     const [img, setImg] = useState('');
     const dispatch = useDispatch();
-    const publishdate = new Date()
+    const d = new Date()
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+    const publishdate = d.toLocaleString('en-US', { timeZone: `${timezone}` });
     const bidarray = JSON.stringify(newbidarray);
-    const email = 'ahan@gmail.com';
-    const status = 'open'
+    const status = 'open';
+    const winnerstatus = 'pending';
+
     const OnblurHandler = (e) => {
         const auctionname = e.target.name;
         const auctionvalue = e.target.value;
@@ -38,8 +42,8 @@ const AddAuction = () => {
         fd.append('description', auctiondata.description)
         fd.append('bidarray', bidarray)
         fd.append('pulishdate', publishdate)
-        fd.append('email', email)
         fd.append('status', status)
+        fd.append('winnerstatus', winnerstatus)
         fd.append('img', img)
         dispatch(AuctionPost(fd))
         e.target.reset()
@@ -98,7 +102,7 @@ const AddAuction = () => {
                     <Form.Control as="textarea" name='description' onBlur={OnblurHandler}  type="text" placeholder="Description" />
                     </FloatingLabel>
                 </Row>
-            <button type='submit' className='btn btn-dark text-warning'>ADD AUCTION</button>
+            <button type='submit' className='btn regularbtn fw-bold text-warning'>ADD AUCTION</button>
             </Form>
         </Row>
     );

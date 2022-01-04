@@ -11,13 +11,13 @@ const Aucntion = ({auction}) => {
         <Card.Body>
           <Card.Title>{productname}</Card.Title>
           <Card.Text>
-              <h2 className='text-primary'>Last Date {lastdate}</h2>
+              <h4 className='text-warning fw-bold'>Last Date {lastdate}</h4>
             <h4>Bid Start From ${bidprice}</h4>
           </Card.Text>
           <Card.Footer className="text-muted">
             Publishdate {publishdate}
           </Card.Footer>
-          <Link to={`/BidDetails/${_id}`}><button className='btn btn-warning fw-bold text-dark'>Bid Now</button></Link>
+          <Link to={`/BidDetails/${_id}`}><button className='btn regularbtn fw-bold text-warning'>Bid Now</button></Link>
         </Card.Body>
           </Card>
         </Col>

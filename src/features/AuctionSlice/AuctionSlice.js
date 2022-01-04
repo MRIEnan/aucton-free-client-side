@@ -32,11 +32,11 @@ export const GetBidDetails = createAsyncThunk(
     return response
   }
 )
-//bookmaker geeting individual auction data by their email
+//bookmaker geeting  auction data 
 export const GetBookmakerAcution = createAsyncThunk(
   'Auction/getBookmakerAcution',
-  async (email) => {
-    const response = await fetch(`http://localhost:5000/GetBookmakerAcution?email=${email}`).then(res=> res.json()).catch(error => {
+  async () => {
+    const response = await fetch('http://localhost:5000/GetBookmakerAcution').then(res=> res.json()).catch(error => {
   });
     return response
   }
@@ -63,12 +63,36 @@ export const ManageStatus = createAsyncThunk(
     return response
   }
 )
+
 //Auctioneer geting data by category
 export const GetCategoryData = createAsyncThunk(
   'Auction/getCategoryData',
   async (category) => {
     console.log('hitted',category)
     const response = await fetch(`http://localhost:5000/GetCategoryData?category=${category}`).then(res=> res.json()).catch(error => {
+=======
+//bookmaker making winner
+export const MakingWiner = createAsyncThunk(
+  'Auction/makingWiner',
+  async (data) => {
+    console.log('hittet',data)
+    const response = await fetch('http://localhost:5000/MakingWiner',{
+      method: 'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
+//bookmaker making winner
+export const GetWinnerData = createAsyncThunk(
+  'Auction/getWinnerData',
+  async (email) => {
+    const response = await fetch(`http://localhost:5000/getWinnerData?email=${email}`).then(res=> res.json()).catch(error => {
+
   });
     return response
   }
@@ -78,7 +102,11 @@ const initialState = {
   auctiondata: [],
   auctionproduct: {},
   bookmakerauction: [],
+
   categorydata: []
+
+  winnerdata: []
+
 };
 
 export const AuctionSlice = createSlice({
@@ -128,8 +156,20 @@ export const AuctionSlice = createSlice({
         'success'
       )
     })
+
     builder.addCase(GetCategoryData.fulfilled, (state, action) => {
       state.categorydata = action.payload
+
+    builder.addCase(MakingWiner.fulfilled, (state, action) => {
+      Swal.fire(
+        'Good job!',
+        'Winner Maked SuccessFully',
+        'success'
+      )
+    })
+    builder.addCase(GetWinnerData.fulfilled, (state, action) => {
+      state.winnerdata = action.payload
+
     })
   },
 });

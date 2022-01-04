@@ -17,7 +17,7 @@ const Banner = () => {
                                 <div className=" text-start ps-5">
                                     <h1>The Xa-023 <br />
                                         New Products 2022</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate explicabo amet consectetur, adipisicing elit. </p>
+                                    <p>smartwatch, a small smartphonelike device worn on the wrist. Many smartwatches are connected to a smartphone that notifies the user of incoming calls, e-mail messages</p>
                                     <br />
                                     <Button variant="dark">Bid Now</Button>
                                 </div>
@@ -38,7 +38,7 @@ const Banner = () => {
                                 <div className=" text-start ps-5">
                                     <h1>The Canon-EOS <br />
                                         New Products 2022</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate explicabo amet consectetur, adipisicing elit. </p>
+                                    <p>Entry-level DSLR cameras, such as Canon's EOS Rebel series, are known for producing sharp, professional-grade images and videos. ... These cameras are also great for students, families, and casual photographers who prefer the option of using interchangeable lenses to capture the perfect shot. </p>
                                     <br />
                                     <Button variant="dark">Bid Now</Button>
                                 </div>
@@ -59,7 +59,7 @@ const Banner = () => {
                                 <div className=" text-start ps-5">
                                     <h1>The Mustang-GT <br />
                                         New Products 2022</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate explicabo amet consectetur, adipisicing elit. </p>
+                                    <p> Mustang has a top speed of 186 mph, and it does 0-60 mph in 3.3 seconds. The Shelby GT500 also does a quarter-mile time of 10.7 seconds and at a speed of 132</p>
                                     <br />
                                     <Button variant="dark">Bid Now</Button>
                                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import './BidItems.css'
-
+import furniturelogo from '../../../../images/furniturelogo.jpg'
 const BidItems = () => {
     return (
         <div>
@@ -9,17 +9,13 @@ const BidItems = () => {
                 
                 
                 <Row>
-                    <Col style={{ width: '11rem', height: '12.5rem' }} sm={6} md={2} className='g-1 card '>
-                        
-                          
+                    <Col style={{ width: '11rem', height: '12.5rem' }} sm={6} md={2} className='g-1 card '>    
                          
                         <Card.Header style={{ fontWeight: '600' }}>JEWELARY</Card.Header>
                             <Card.Body>
                                 <Card.Img variant="top p-4" src={'http://pixner.net/sbidu/main/assets/images/auction/02.png'} />
                                 
                             </Card.Body>
-                        
-                        
                     </Col>
                     <Col style={{ width: '11rem', height: '12.5rem' }} sm={6} md={2} className='g-1 card'>
                       
@@ -51,13 +47,11 @@ const BidItems = () => {
                     <Col style={{ width: '11rem', height: '12.5rem' }} sm={6} md={2} className='g-1 card'>
                       
                         <Card.Header style={{ fontWeight: '600' }}>WATCH</Card.Header>
-                            <Card.Body >
-                                <Card.Img variant="top p-4" src={'http://pixner.net/sbidu/main/assets/images/auction/03.png'} />
-                                
-                            </Card.Body>
-                   
+                        <Card.Body >
+                            <Card.Img variant="top p-4" src={'http://pixner.net/sbidu/main/assets/images/auction/03.png'} />
+                            
+                        </Card.Body>
                     </Col>
-                    
                     
                     <Col style={{ width: '11rem', height: '12.5rem' }} sm={6} md={2} className='g-1 card'>
                         
@@ -66,7 +60,14 @@ const BidItems = () => {
                                 <Card.Img variant="top p-4" src={'http://pixner.net/sbidu/main/assets/images/auction/05.png'} />
                                 
                             </Card.Body>
+                    </Col>
+                    <Col style={{ width: '11rem', height: '12.5rem' }} sm={6} md={2} className='g-1 card'>
                         
+                        <Card.Header style={{ fontWeight: '600' }}>FURNITURE</Card.Header>
+                            <Card.Body>
+                                <Card.Img className='img-fluid' variant="top p-4" src={furniturelogo} />
+                                
+                            </Card.Body>
                     </Col>
                    
                 </Row>

@@ -12,16 +12,16 @@ const Manage = ({auction, DeleteHandler,StatusHandler}) => {
       <Card.Body>
         <Card.Title>{productname}</Card.Title>
         <Card.Text>
-            <h2 className='text-primary'>Last Date {lastdate}</h2>
-          <h4>Bid Start From ${bidprice}</h4>
-          <p className={status === 'open' ? 'text-success' : 'text-warning'}>{status}</p>
+            <h4 className='text-primary fw-bold'>Last Date {lastdate}</h4>
+          <h4 className='fw-bold'>Bid Start From ${bidprice}</h4>
+          <p className={status === 'open' ? 'text-success fw-bold' : 'text-warning fw-bold'}>{status}</p>
         </Card.Text>
         <Card.Footer className="text-muted">
           Publishdate {publishdate}
         </Card.Footer>
         <button onClick={() => DeleteHandler(_id)}  className='btn btn-danger fw-bold text-dark'>DELETE</button>
         <Link to={`/BookMakerDashboard/SeeWhoBid/${_id}`}><button className='btn btn-warning mx-2'>SEE WHO BID</button></Link>
-        <button onClick={() => StatusHandler(_id)}  className='btn btn-info fw-bold text-dark'>CLOSE AUCTION</button>
+        <button onClick={() => StatusHandler(_id)}  className='btn btn-info fw-bold text-dark mt-2'>CLOSE AUCTION</button>
       </Card.Body>
     </Card>
       </Col>
