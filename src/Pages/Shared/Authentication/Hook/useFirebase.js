@@ -51,7 +51,7 @@ const useFirebase = () => {
 
     const loginUser = (email, password, location, navigate) => {
         setIsLoading(true);
-        fetch(`http://localhost:5000/userCheck?email=${email}`)
+        fetch(`https://young-atoll-51285.herokuapp.com/userCheck?email=${email}`)
         .then(res => res.json())
         .then(data => {
             if(data.role === 'bookmaker')
@@ -138,7 +138,7 @@ const useFirebase = () => {
 
         const user = { email, name }
 
-        fetch('http://localhost:5000/userPost', {
+        fetch('https://young-atoll-51285.herokuapp.com/userPost', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

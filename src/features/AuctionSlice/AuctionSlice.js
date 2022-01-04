@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 export const AuctionPost = createAsyncThunk(
   'Auction/auctionPost',
   async (fd) => {
-    const response = await fetch('http://localhost:5000/auctionpost',{
+    const response = await fetch('https://young-atoll-51285.herokuapp.com/auctionpost',{
       method: 'POST',
       body: fd 
     }).then(res=> res.json()).catch(error => {
@@ -17,7 +17,7 @@ export const AuctionPost = createAsyncThunk(
 export const GetAcution = createAsyncThunk(
   'Auction/getAcution',
   async () => {
-    const response = await fetch('http://localhost:5000/getAcution').then(res=> res.json()).catch(error => {
+    const response = await fetch('https://young-atoll-51285.herokuapp.com/getAcution').then(res=> res.json()).catch(error => {
   });
     return response
   }
@@ -27,7 +27,7 @@ export const GetBidDetails = createAsyncThunk(
   'Auction/getBidDetails',
   async (id) => {
     console.log('hitted',id)
-    const response = await fetch(`http://localhost:5000/GetBidDetails/${id}`).then(res=> res.json()).catch(error => {
+    const response = await fetch(`https://young-atoll-51285.herokuapp.com/GetBidDetails/${id}`).then(res=> res.json()).catch(error => {
   });
     return response
   }
@@ -36,7 +36,7 @@ export const GetBidDetails = createAsyncThunk(
 export const GetBookmakerAcution = createAsyncThunk(
   'Auction/getBookmakerAcution',
   async () => {
-    const response = await fetch('http://localhost:5000/GetBookmakerAcution').then(res=> res.json()).catch(error => {
+    const response = await fetch('https://young-atoll-51285.herokuapp.com/GetBookmakerAcution').then(res=> res.json()).catch(error => {
   });
     return response
   }
@@ -45,7 +45,7 @@ export const GetBookmakerAcution = createAsyncThunk(
 export const BookMakerDeleteAuction = createAsyncThunk(
   'Auction/bookMakerDeleteAuction',
   async (id) => {
-    const response = await fetch(`http://localhost:5000/BookMakerDeleteAuction/${id}`,{
+    const response = await fetch(`https://young-atoll-51285.herokuapp.com/BookMakerDeleteAuction/${id}`,{
       method: 'DELETE'
     }).then(res=> res.json()).catch(error => {
   });
@@ -56,7 +56,7 @@ export const BookMakerDeleteAuction = createAsyncThunk(
 export const ManageStatus = createAsyncThunk(
   'Auction/manageStatus',
   async (id) => {
-    const response = await fetch(`http://localhost:5000/ManageStatus/${id}`,{
+    const response = await fetch(`https://young-atoll-51285.herokuapp.com/ManageStatus/${id}`,{
       method: 'PUT'
     }).then(res=> res.json()).catch(error => {
   });
@@ -68,7 +68,7 @@ export const ManageStatus = createAsyncThunk(
 export const GetCategoryData = createAsyncThunk(
   'Auction/getCategoryData',
   async (category) => {
-    const response = await fetch(`http://localhost:5000/GetCategoryData?category=${category}`).then(res=> res.json()).catch(error => {
+    const response = await fetch(`https://young-atoll-51285.herokuapp.com/GetCategoryData?category=${category}`).then(res=> res.json()).catch(error => {
   });
     return response
   }
@@ -79,7 +79,7 @@ export const MakingWiner = createAsyncThunk(
   'Auction/makingWiner',
   async (data) => {
     console.log('hittet',data)
-    const response = await fetch('http://localhost:5000/MakingWiner',{
+    const response = await fetch('https://young-atoll-51285.herokuapp.com/MakingWiner',{
       method: 'POST',
       headers:{
         'content-type':'application/json'
@@ -94,7 +94,7 @@ export const MakingWiner = createAsyncThunk(
 export const GetWinnerData = createAsyncThunk(
   'Auction/getWinnerData',
   async (email) => {
-    const response = await fetch(`http://localhost:5000/getWinnerData?email=${email}`).then(res=> res.json()).catch(error => {
+    const response = await fetch(`https://young-atoll-51285.herokuapp.com/getWinnerData?email=${email}`).then(res=> res.json()).catch(error => {
 
   });
     return response

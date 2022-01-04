@@ -31,7 +31,7 @@ const BidDetails = () => {
         {
             const newdata = {biddate, productId: id, bidamount: bid, username: user.displayName, email: user.email};
             console.log(newdata)
-            fetch('http://localhost:5000/postingBid', {
+            fetch('https://young-atoll-51285.herokuapp.com/postingBid', {
                 method: 'PUT',
                 headers:{
                     'content-type':'application/json'

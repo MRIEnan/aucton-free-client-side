@@ -37,8 +37,6 @@ const AuctioneerNav = () => {
                         </Nav>
                         <Nav className="ms-auto align-items-center">
                             <Nav.Link as={Link} to='/'>Home</Nav.Link>
-                            <Nav.Link as={Link} to='/BookMakerDashboard'>Book Maker DashBoard</Nav.Link>
-                            
                             {user.email ? (
                                 <>
                                 <button style={{backgroundColor:'#020c53'}} onClick={LogOutHandler} className="text-center btn btn-primary">
