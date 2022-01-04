@@ -1,5 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile} from "firebase/auth";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import firebaseInitialization from "../../../../Firebase/firebase.init";
 
 
@@ -32,7 +33,11 @@ const useFirebase = () => {
                 });
                 setError('');
                 // history.replace('/')
-
+                Swal.fire(
+                    'SUCCESSFULL !',
+                    'Register SuccessFully',
+                    'success'
+                  )
             })
             .catch((error) => {
 

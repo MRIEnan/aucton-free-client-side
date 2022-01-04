@@ -49,14 +49,15 @@ const AddAuction = () => {
         e.target.reset()
     }
     return (
-        <Row className='container-fluid'>
-            <h1>Add A Auction</h1>
-            <Form onSubmit={SubmitHandler}>
+        <Row className='container-fluid justify-content-center'>
+            <h1 className='text-center fw-bold my-4'>Add A Auction</h1>
+            <Col lg={10} md={12} sm={12}>
+            <Form className='addform p-3' onSubmit={SubmitHandler}>
                 <Row className='mb-3'>
                     <FloatingLabel
                     controlId="floatingInput"
                     label="Product Name"
-                    className="mb-3"
+                    className="mb-3 text-primary fw-bold fs-6"
                     as={Col}
                     >
                     <Form.Control name='productname' onBlur={OnblurHandler} type="text" placeholder="Product Name" />
@@ -64,7 +65,7 @@ const AddAuction = () => {
                     <FloatingLabel
                     controlId="floatingInput"
                     label="Bid Start From"
-                    className="mb-3"
+                    className="mb-3 text-primary fw-bold fs-6"
                     as={Col}
                     >
                     <Form.Control  name='bidprice' onBlur={OnblurHandler} type="number" placeholder="Bid Start From" />
@@ -74,7 +75,7 @@ const AddAuction = () => {
                     <FloatingLabel
                     controlId="floatingInput"
                     label="Product Category"
-                    className="mb-3"
+                    className="mb-3 text-primary fw-bold fs-6"
                     as={Col}
                     >
                     <Form.Control  name='category' onBlur={OnblurHandler}  type="text" placeholder="Product Category" />
@@ -82,21 +83,21 @@ const AddAuction = () => {
                     <FloatingLabel
                     controlId="floatingInput"
                     label="Last date"
-                    className="mb-3"
+                    className="mb-3 text-primary fw-bold fs-6"
                     as={Col}
                     >
                     <Form.Control  name='lastdate' onBlur={OnblurHandler}  type="date" placeholder="Last date" />
                     </FloatingLabel>
                 </Row>
                 <Row className='mb-3'>
-                    <Form.Group controlId="formFile" className="mb-3">
+                    <Form.Group controlId="formFile" className="mb-3 text-primary fw-bold fs-6">
                         <Form.Label>Choose Product Image</Form.Label>
                         <Form.Control onBlur={imgHandler} type="file" />
                     </Form.Group>
                     <FloatingLabel
                     controlId="floatingInput"
                     label="Description"
-                    className="mb-3"
+                    className="mb-3 text-primary fw-bold fs-6"
                     
                     >
                     <Form.Control as="textarea" name='description' onBlur={OnblurHandler}  type="text" placeholder="Description" />
@@ -104,6 +105,7 @@ const AddAuction = () => {
                 </Row>
             <button type='submit' className='btn regularbtn fw-bold text-warning'>ADD AUCTION</button>
             </Form>
+            </Col>
         </Row>
     );
 };

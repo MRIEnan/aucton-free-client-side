@@ -20,7 +20,7 @@ const BookmakerNav = () => {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="ms-auto align-items-center">
-                      <Nav.Link as={Link} to='/'>Home</Nav.Link>
+                      <Nav.Link as={Link} to='/'>User Home</Nav.Link>
                       {user.email ? (
                           <>
                           <button style={{backgroundColor:'#020c53'}} onClick={LogOutHandler} className="text-center btn btn-primary">
@@ -29,8 +29,7 @@ const BookmakerNav = () => {
                           </>
                       ) : (
                           <>
-                              <Nav.Link as={Link} to='/login'>LogIn</Nav.Link>
-                              <Nav.Link as={Link} to='/signup'>SignUp</Nav.Link>
+                              ''
                           </>
                       )}
                   </Nav>

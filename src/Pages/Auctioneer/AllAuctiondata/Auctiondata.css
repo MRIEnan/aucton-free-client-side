@@ -2,3 +2,9 @@
     width: 300px;
     height: 350px;
 }
+@media only screen and (max-width:688px) {
+    .auctionimg{
+        width: 250px;
+        height: 300px;
+    }
+}

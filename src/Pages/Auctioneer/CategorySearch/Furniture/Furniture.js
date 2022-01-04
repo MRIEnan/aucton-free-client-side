@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { GetCategoryData } from '../../../../features/AuctionSlice/AuctionSlice';
 import AuctioneerNav from '../../AuctioneerHome/AuctioneerNav';
+import DashBoardProfile from '../../Timer/CountDown';
 const Furniture = () => {
     const dispatch = useDispatch()
 
@@ -27,13 +28,13 @@ const Furniture = () => {
                       <Card.Body>
                         <Card.Title>{data.productname}</Card.Title>
                         <Card.Text>
-                            <h2 className='text-primary'>Last Date {data.lastdate}</h2>
+                        <h2 className='text-primary'> <DashBoardProfile dates={data.lastdate}></DashBoardProfile></h2>
                           <h4>Bid Start From ${data.bidprice}</h4>
                         </Card.Text>
                         <Card.Footer className="text-muted">
                           Publishdate {data.publishdate}
                         </Card.Footer>
-                        <Link to={`/BidDetails/${data._id}`}><button className='btn btn-warning fw-bold text-dark'>Bid Now</button></Link>
+                        <Link to={`/BidDetails/${data._id}`}><button  className='btn regularbtn fw-bold text-light'>Bid Now</button></Link>
                       </Card.Body>
                         </Card>
                       </Col>

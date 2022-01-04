@@ -7,3 +7,10 @@
     padding: 10px 20px 10px 20px;
     text-align: center;
 }
+.sidebartext{
+    color: #020c53;
+}
+.addform{
+    border: solid #020c53 4px;
+    border-radius: 10px;
+}

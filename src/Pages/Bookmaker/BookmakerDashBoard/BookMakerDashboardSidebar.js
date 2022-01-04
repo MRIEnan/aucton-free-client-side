@@ -6,17 +6,20 @@ import {Link} from 'react-router-dom';
 const BookMakerDashboardSidebar = () => {
     return (
         <ListGroup>
-            <ListGroup.Item as={Link} to="/BookMakerDashboard" action variant="secondary">
-                Home
+            <ListGroup.Item as={Link} className='my-4 ' to="/BookMakerDashboard" action variant="secondary">
+                <h5 className="sidebartext fw-bold">Home</h5>
             </ListGroup.Item>
-            <ListGroup.Item as={Link} to="/BookMakerDashboard/AddAuction" action variant="success">
-                Add Auction
+            <ListGroup.Item as={Link} className='my-4 ' to="/BookMakerDashboard/AddAuction" action variant="success">
+            <h5 className="sidebartext fw-bold">Add Auction</h5>
+                
             </ListGroup.Item>
-            <ListGroup.Item as={Link} to="/BookMakerDashboard/ManageAuction" action variant="success">
-                Manage Auction
+            <ListGroup.Item as={Link} className='my-4 ' to="/BookMakerDashboard/ManageAuction" action variant="success">
+            <h5 className="sidebartext fw-bold">Manage Auction</h5>
+                
             </ListGroup.Item>
-            <ListGroup.Item as={Link} to="/BookMakerDashboard/MakeAnBookMaker" action variant="success">
-                Make An Book Maker
+            <ListGroup.Item as={Link} className='my-4 ' to="/BookMakerDashboard/MakeAnBookMaker" action variant="success">
+            <h5 className="sidebartext fw-bold"> Make An Book Maker</h5>
+               
             </ListGroup.Item>
       </ListGroup>
     );
