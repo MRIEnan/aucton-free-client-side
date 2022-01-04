@@ -63,11 +63,22 @@ export const ManageStatus = createAsyncThunk(
     return response
   }
 )
+//Auctioneer geting data by category
+export const GetCategoryData = createAsyncThunk(
+  'Auction/getCategoryData',
+  async (category) => {
+    console.log('hitted',category)
+    const response = await fetch(`http://localhost:5000/GetCategoryData?category=${category}`).then(res=> res.json()).catch(error => {
+  });
+    return response
+  }
+)
 const initialState = {
   value: 0,
   auctiondata: [],
   auctionproduct: {},
   bookmakerauction: [],
+  categorydata: []
 };
 
 export const AuctionSlice = createSlice({
@@ -116,6 +127,9 @@ export const AuctionSlice = createSlice({
         'Auction Closed SuccessFully',
         'success'
       )
+    })
+    builder.addCase(GetCategoryData.fulfilled, (state, action) => {
+      state.categorydata = action.payload
     })
   },
 });

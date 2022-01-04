@@ -17,6 +17,12 @@ import SignUp from './Pages/Shared/SignUp/SignUp';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 import AuctioneerNav from './Pages/Auctioneer/AuctioneerHome/AuctioneerNav';
 import BidDetails from './Pages/Auctioneer/BidDetails/BidDetails';
+import YourWinnigAuction from './Pages/Auctioneer/YourWinnigAuction/YourWinnigAuction';
+import Electronics from './Pages/Auctioneer/CategorySearch/Electronics/Electronics';
+import Furniture from './Pages/Auctioneer/CategorySearch/Furniture/Furniture';
+import Jewelry from './Pages/Auctioneer/CategorySearch/jewellery/jewelry';
+import Vehicles from './Pages/Auctioneer/CategorySearch/vehicle/Vehicles';
+import Watch from './Pages/Auctioneer/CategorySearch/Watch/Watch';
 function App() {
   return (
     <div className="container-fluid">
@@ -35,8 +41,14 @@ function App() {
       <Route path="/BookMakerDashboard/ManageAuction" element={<ManageAuction />} />
       <Route path="/BookMakerDashboard/SeeWhoBid/:id" element={<SeeWhoBid />} />
     </Route>
+    <Route path="/YourWinnigAuction" element={<YourWinnigAuction/>}/>
+    <Route path="/Electronics" element={<Electronics/>}/>
+    <Route path="/Furniture" element={<Furniture/>}/>
+    <Route path="/Jewelry" element={<Jewelry/>}/>
+    <Route path="/Vehicles" element={<Vehicles/>}/>
+    <Route path="/Watch" element={<Watch/>}/>
   </Routes>
-</BrowserRouter>
+  </BrowserRouter>
       </AuthProvider>
     </div>
   );
