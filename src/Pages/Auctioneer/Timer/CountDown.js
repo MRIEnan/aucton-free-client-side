@@ -65,28 +65,28 @@ const DashBoardProfile = ({dates}) => {
                     <h2>{timerDays}</h2>
                     <h3>Days</h3>
                     <div style={{width: '100%',backgroundColor: 'yellow' ,height: '10px'}}>
-                        <div style={{width: `${(100-((timerDays/24)*100))/2}px`,backgroundColor: 'red', height: '100%'}}></div>
+                        <div style={{width: `${(100-((timerDays/24)*100))}px`,backgroundColor: 'red', height: '100%'}}></div>
                     </div>
                 </div>
                 <div className="timer-box-container">
                     <h2>{timerHours}</h2>
                     <h3>Hours</h3>
                     <div style={{width: '100%',backgroundColor: 'yellow' ,height: '10px'}}>
-                        <div style={{width: `${(100-((timerHours/24)*100))/2}px`,backgroundColor: 'red', height: '100%'}}></div>
+                        <div style={{width: `${(100-((timerHours/24)*100))}px`,backgroundColor: 'red', height: '100%'}}></div>
                     </div>
                 </div>
                 <div className="timer-box-container">
                     <h2>{timerMinutes}</h2>
                     <h3>Minutes</h3>
                     <div style={{width: '100%',backgroundColor: 'yellow' ,height: '10px'}}>
-                        <div style={{width: `${(100-((timerMinutes/60)*100))/2}px`,backgroundColor: 'red', height: '100%'}}></div>
+                        <div style={{width: `${(100-((timerMinutes/60)*100))}px`,backgroundColor: 'red', height: '100%'}}></div>
                     </div>
                 </div>
                 <div className="timer-box-container">
                     <h2>{timerSeconds}</h2>
                     <h3>Seconds</h3>
                     <div style={{width: '100%',backgroundColor: 'yellow' ,height: '10px'}}>
-                        <div style={{width: `${(100-((timerSeconds/60)*100))/2}px`,backgroundColor: 'red', height: '100%'}}></div>
+                        <div style={{width: `${(100-((timerSeconds/60)*100))}px`,backgroundColor: 'red', height: '100%'}}></div>
                     </div>
                 </div>
             </div>
